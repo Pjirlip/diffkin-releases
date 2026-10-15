@@ -8,7 +8,7 @@ Diffkin writes its log to the standard error stream. To collect it:
 
 - **macOS:** `"/Applications/Diffkin.app/Contents/MacOS/diffkin-desktop" 2> ~/Desktop/diffkin.log`
 - **Linux:** `diffkin-desktop 2> ~/diffkin.log` (AppImage: `./Diffkin*.AppImage 2> ~/diffkin.log`)
-- **Windows:** start Diffkin from PowerShell with `$env:DIFFKIN_LOG="debug"; & "$env:LOCALAPPDATA\Programs\Diffkin\Diffkin.exe" 2> "$env:USERPROFILE\Desktop\diffkin.log"`
+- **Windows:** start Diffkin from PowerShell with `$env:DIFFKIN_LOG="debug"; & "$env:LOCALAPPDATA\Diffkin\diffkin-desktop.exe" 2> "$env:USERPROFILE\Desktop\diffkin.log"`
 
 `DIFFKIN_LOG` controls the detail (`info` by default, `debug` for reports; the syntax is `RUST_LOG`'s). Credentials, tokens and license keys are masked in the log; URLs and page titles are not, so read the log before sharing it.
 

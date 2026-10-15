@@ -16,7 +16,7 @@ Compare the checksum of the downloaded file with the line in `SHA256SUMS.txt` of
 
 ```sh
 shasum -a 256 Diffkin_0.1.0_aarch64.dmg      # macOS
-sha256sum diffkin_0.1.0_amd64.deb            # Linux
+sha256sum Diffkin_0.1.0_amd64.deb            # Linux
 certutil -hashfile Diffkin_0.1.0_x64-setup.exe SHA256   # Windows
 ```
 
@@ -36,7 +36,7 @@ The directory holds the project registry, the browser runtime, logs and `setting
 
 ## Uninstalling
 
-Use the platform's uninstaller (Windows), drag the app to the Bin (macOS) or `sudo apt remove diffkin-desktop` / delete the AppImage (Linux). Project folders and the application data directory are left in place so nothing is lost by accident; delete them yourself if you no longer need them.
+Use the platform's uninstaller (Windows), drag the app to the Bin (macOS) or `sudo apt remove diffkin` / delete the AppImage (Linux). The Linux package installs the binary as `/usr/bin/diffkin-desktop`; the Windows setup installs to `%LOCALAPPDATA%\Diffkin`. Project folders and the application data directory are left in place so nothing is lost by accident; delete them yourself if you no longer need them.
 
 ## Checking an installation
 
