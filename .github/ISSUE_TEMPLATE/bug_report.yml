@@ -1,0 +1,100 @@
+name: Bug report
+description: Something does not work as documented.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please fill in the environment fields from **Settings → About** (or `diffkin --version`); they decide whether the problem can be reproduced.
+
+        **Do not paste credentials, license keys, cookies or `Authorization` headers.** Diffkin masks them in logs, but copied configuration or screenshots may still contain them.
+  - type: input
+    id: version
+    attributes:
+      label: Diffkin version and build
+      description: From Settings → About, for example `0.1.0 (v0.1.0-abc123)`.
+      placeholder: 0.1.0 (v0.1.0-abc123)
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows 11
+        - Windows 10
+        - macOS 15
+        - macOS 14
+        - macOS 13 or earlier
+        - Ubuntu / Debian
+        - Fedora / other Linux
+    validations:
+      required: true
+  - type: input
+    id: os-details
+    attributes:
+      label: OS version and architecture
+      placeholder: macOS 15.3, Apple silicon
+  - type: input
+    id: runtime
+    attributes:
+      label: Browser runtime version
+      description: From Settings → Browser Runtime or Settings → About.
+      placeholder: 155.0.8059.79
+    validations:
+      required: true
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Edition
+      options:
+        - Free
+        - Plus
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps from a fresh start. Mention target type (public site, local development), capture profiles and rules when relevant.
+      placeholder: |
+        1. Create a project and add the target https://…
+        2. Start a crawl
+        3. …
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include the error message and the technical details from the error expander.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: |
+        Run Diffkin with `DIFFKIN_LOG=debug` (see the troubleshooting guide) and paste the relevant lines. Check them for anything sensitive before posting; secrets are masked automatically, URLs and page titles are not.
+      render: text
+  - type: textarea
+    id: fixture
+    attributes:
+      label: Sanitized project or page (optional)
+      description: A minimal page or a copy of `.diffkin/project.json` with hostnames and names replaced. Never attach `state.sqlite` or screenshots that contain personal data.
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I checked the logs and pasted text for credentials, tokens and personal data.
+          required: true
+        - label: I searched existing issues for this problem.
+          required: true

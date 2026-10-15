@@ -1,0 +1,64 @@
+name: False positive or diff quality issue
+description: A page was reported as changed although it was not, a real change was missed, or the severity is wrong.
+title: "[Diff quality] "
+labels: ["diff-quality"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Diff quality reports are the most valuable feedback for Diffkin. Please attach the evidence Diffkin stores for the page: the page diff detail shows changed pixels, regions, SSIM, DOM changes and the severity findings.
+
+        **Do not attach screenshots that contain personal data or credentials.** Crop or mask them if needed.
+  - type: input
+    id: version
+    attributes:
+      label: Diffkin version and browser runtime
+      placeholder: 0.1.0, runtime 155.0.8059.79
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of problem
+      options:
+        - Reported as changed, but nothing changed (false positive)
+        - A real change was not detected (false negative)
+        - Severity is too high or too low
+        - Regions or DOM changes point at the wrong place
+        - Captures are not reproducible (differ between runs)
+    validations:
+      required: true
+  - type: dropdown
+    id: comparison
+    attributes:
+      label: Comparison kind
+      options:
+        - Baselines → current crawl
+        - Target → target (for example production vs. staging)
+        - Run → run
+    validations:
+      required: true
+  - type: textarea
+    id: page
+    attributes:
+      label: Page and evidence
+      description: |
+        Route, capture profile (viewport, DPR, color scheme) and the evidence from the page diff detail: changed pixel percentage, number of regions, SSIM, DOM change counts, severity findings, capture-configuration mismatch flag. Mention ignore/mask rules in effect.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What the result should have been
+    validations:
+      required: true
+  - type: textarea
+    id: hints
+    attributes:
+      label: What the page does
+      description: Animations, carousels, lazy images, web fonts, dates/times, randomized content, A/B tests, consent banners — anything that could legitimately differ between captures.
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Attachments
+      description: Masked screenshots A and B and the diff image, or a minimal page that reproduces the behavior.

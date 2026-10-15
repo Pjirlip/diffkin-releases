@@ -1,0 +1,39 @@
+name: Feature request
+description: Suggest an improvement or a new capability.
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: The workflow or situation, not the solution. Which pages, how many routes, which environments?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: How Diffkin should behave. Screenshots or sketches are welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Workarounds you use today
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Crawling and targets
+        - Capture and profiles
+        - Visual diff
+        - DOM diff
+        - Review and baselines
+        - Automation (CLI, CI, MCP, scheduler)
+        - Integrations and storage
+        - Licensing and updates
+        - Other
+    validations:
+      required: true
